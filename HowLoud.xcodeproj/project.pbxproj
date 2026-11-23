@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C461FBBBF56B35D5C0F3EA0 /* Pods_HowLoud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A570EF10DF2E652CCF0BC5 /* Pods_HowLoud.framework */; };
-		5A9EB434C443A0F9C48F8FF7 /* Pods_HowLoudTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F5B81FFAA298B00F454837 /* Pods_HowLoudTests.framework */; };
-		DE9E3683D984F6476225F9BE /* Pods_HowLoudUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5896C172D2B0BCEFC4AA7CB9 /* Pods_HowLoudUITests.framework */; };
-		E96AEB721CFFD19D00BDE609 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96AEB711CFFD19D00BDE609 /* MainPresenter.swift */; };
+		E90000011CD32A6600FC49A3 /* HowLoudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000111CD32A6600FC49A3 /* HowLoudApp.swift */; };
+		E90000021CD32A6600FC49A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000121CD32A6600FC49A3 /* ContentView.swift */; };
+		E90000031CD32A6600FC49A3 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000131CD32A6600FC49A3 /* GaugeView.swift */; };
+		E90000041CD32A6600FC49A3 /* DecibelMeterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000141CD32A6600FC49A3 /* DecibelMeterViewModel.swift */; };
+		E90000051CD32A6600FC49A3 /* DecibelCalibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000151CD32A6600FC49A3 /* DecibelCalibration.swift */; };
+		E90000061CD32A6600FC49A3 /* SoundLevelEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000161CD32A6600FC49A3 /* SoundLevelEngine.swift */; };
+		E90000071CD32A6600FC49A3 /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000171CD32A6600FC49A3 /* CalibrationView.swift */; };
+		E90000081CD32A6600FC49A3 /* AppleWatchHealthKitCalibrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90000181CD32A6600FC49A3 /* AppleWatchHealthKitCalibrator.swift */; };
+		E90000091CD32A6600FC49A3 /* HowLoudTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900001A1CD32A6600FC49A3 /* HowLoudTheme.swift */; };
 		E96AEB781D00057A00BDE609 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E96AEB7A1D00057A00BDE609 /* Localizable.strings */; };
-		E9A90B381CD32A6600FC49A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A90B371CD32A6600FC49A3 /* AppDelegate.swift */; };
-		E9A90B3A1CD32A6600FC49A3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A90B391CD32A6600FC49A3 /* MainViewController.swift */; };
-		E9A90B3D1CD32A6600FC49A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A90B3B1CD32A6600FC49A3 /* Main.storyboard */; };
 		E9A90B3F1CD32A6600FC49A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A90B3E1CD32A6600FC49A3 /* Assets.xcassets */; };
 		E9A90B4D1CD32A6600FC49A3 /* HowLoudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A90B4C1CD32A6600FC49A3 /* HowLoudTests.swift */; };
 		E9A90B581CD32A6600FC49A3 /* HowLoudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A90B571CD32A6600FC49A3 /* HowLoudUITests.swift */; };
-		E9A90B661CD32B4000FC49A3 /* DecibelMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A90B651CD32B4000FC49A3 /* DecibelMeter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,22 +40,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		48A570EF10DF2E652CCF0BC5 /* Pods_HowLoud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowLoud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B717E209F127D4C01DD75E0 /* Pods-HowLoudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowLoudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HowLoudTests/Pods-HowLoudTests.release.xcconfig"; sourceTree = "<group>"; };
-		51F5B81FFAA298B00F454837 /* Pods_HowLoudTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowLoudTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5896C172D2B0BCEFC4AA7CB9 /* Pods_HowLoudUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowLoudUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D9C248E278469B501541C5E /* Pods-HowLoudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowLoudTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HowLoudTests/Pods-HowLoudTests.debug.xcconfig"; sourceTree = "<group>"; };
-		898F91AE8BFE9B85A64A54CA /* Pods-HowLoud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowLoud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HowLoud/Pods-HowLoud.debug.xcconfig"; sourceTree = "<group>"; };
-		C9F5ACA86A936D23B0411623 /* Pods-HowLoudUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowLoudUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HowLoudUITests/Pods-HowLoudUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E96AEB711CFFD19D00BDE609 /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E90000111CD32A6600FC49A3 /* HowLoudApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowLoudApp.swift; sourceTree = "<group>"; };
+		E90000121CD32A6600FC49A3 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E90000131CD32A6600FC49A3 /* GaugeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
+		E90000141CD32A6600FC49A3 /* DecibelMeterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecibelMeterViewModel.swift; sourceTree = "<group>"; };
+		E90000151CD32A6600FC49A3 /* DecibelCalibration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecibelCalibration.swift; sourceTree = "<group>"; };
+		E90000161CD32A6600FC49A3 /* SoundLevelEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundLevelEngine.swift; sourceTree = "<group>"; };
+		E90000171CD32A6600FC49A3 /* CalibrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
+		E90000181CD32A6600FC49A3 /* AppleWatchHealthKitCalibrator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleWatchHealthKitCalibrator.swift; sourceTree = "<group>"; };
+		E90000191CD32A6600FC49A3 /* HowLoud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HowLoud.entitlements; sourceTree = "<group>"; };
+		E900001A1CD32A6600FC49A3 /* HowLoudTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowLoudTheme.swift; sourceTree = "<group>"; };
 		E96AEB731D00044600BDE609 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		E96AEB751D00048100BDE609 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		E96AEB791D00057A00BDE609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E96AEB7B1D00057D00BDE609 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E96AEB7C1D00057E00BDE609 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E9A90B341CD32A6600FC49A3 /* HowLoud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowLoud.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9A90B371CD32A6600FC49A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9A90B391CD32A6600FC49A3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E9A90B3C1CD32A6600FC49A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9A90B3E1CD32A6600FC49A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9A90B431CD32A6600FC49A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,9 +65,6 @@
 		E9A90B531CD32A6600FC49A3 /* HowLoudUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HowLoudUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A90B571CD32A6600FC49A3 /* HowLoudUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowLoudUITests.swift; sourceTree = "<group>"; };
 		E9A90B591CD32A6600FC49A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9A90B651CD32B4000FC49A3 /* DecibelMeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DecibelMeter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		F2C1A0E934E017CF30F1A388 /* Pods-HowLoud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowLoud.release.xcconfig"; path = "Pods/Target Support Files/Pods-HowLoud/Pods-HowLoud.release.xcconfig"; sourceTree = "<group>"; };
-		FEFA27B1BC631C6C98370A65 /* Pods-HowLoudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowLoudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HowLoudUITests/Pods-HowLoudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C461FBBBF56B35D5C0F3EA0 /* Pods_HowLoud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A9EB434C443A0F9C48F8FF7 /* Pods_HowLoudTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,36 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE9E3683D984F6476225F9BE /* Pods_HowLoudUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0892219F1248D35BB7C55347 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				898F91AE8BFE9B85A64A54CA /* Pods-HowLoud.debug.xcconfig */,
-				F2C1A0E934E017CF30F1A388 /* Pods-HowLoud.release.xcconfig */,
-				7D9C248E278469B501541C5E /* Pods-HowLoudTests.debug.xcconfig */,
-				4B717E209F127D4C01DD75E0 /* Pods-HowLoudTests.release.xcconfig */,
-				FEFA27B1BC631C6C98370A65 /* Pods-HowLoudUITests.debug.xcconfig */,
-				C9F5ACA86A936D23B0411623 /* Pods-HowLoudUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		747D8CFC26C62607BF7C7EBF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				48A570EF10DF2E652CCF0BC5 /* Pods_HowLoud.framework */,
-				51F5B81FFAA298B00F454837 /* Pods_HowLoudTests.framework */,
-				5896C172D2B0BCEFC4AA7CB9 /* Pods_HowLoudUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E9A90B2B1CD32A6600FC49A3 = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +99,6 @@
 				E9A90B4B1CD32A6600FC49A3 /* HowLoudTests */,
 				E9A90B561CD32A6600FC49A3 /* HowLoudUITests */,
 				E9A90B351CD32A6600FC49A3 /* Products */,
-				0892219F1248D35BB7C55347 /* Pods */,
-				747D8CFC26C62607BF7C7EBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,11 +115,16 @@
 		E9A90B361CD32A6600FC49A3 /* HowLoud */ = {
 			isa = PBXGroup;
 			children = (
-				E9A90B371CD32A6600FC49A3 /* AppDelegate.swift */,
-				E9A90B391CD32A6600FC49A3 /* MainViewController.swift */,
-				E96AEB711CFFD19D00BDE609 /* MainPresenter.swift */,
-				E9A90B3B1CD32A6600FC49A3 /* Main.storyboard */,
-				E9A90B651CD32B4000FC49A3 /* DecibelMeter.swift */,
+				E90000111CD32A6600FC49A3 /* HowLoudApp.swift */,
+				E90000121CD32A6600FC49A3 /* ContentView.swift */,
+				E90000131CD32A6600FC49A3 /* GaugeView.swift */,
+				E90000141CD32A6600FC49A3 /* DecibelMeterViewModel.swift */,
+				E90000151CD32A6600FC49A3 /* DecibelCalibration.swift */,
+				E90000161CD32A6600FC49A3 /* SoundLevelEngine.swift */,
+				E90000171CD32A6600FC49A3 /* CalibrationView.swift */,
+				E90000181CD32A6600FC49A3 /* AppleWatchHealthKitCalibrator.swift */,
+				E90000191CD32A6600FC49A3 /* HowLoud.entitlements */,
+				E900001A1CD32A6600FC49A3 /* HowLoudTheme.swift */,
 				E9A90B3E1CD32A6600FC49A3 /* Assets.xcassets */,
 				E9A90B431CD32A6600FC49A3 /* Info.plist */,
 				E96AEB7A1D00057A00BDE609 /* Localizable.strings */,
@@ -182,12 +157,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9A90B5C1CD32A6600FC49A3 /* Build configuration list for PBXNativeTarget "HowLoud" */;
 			buildPhases = (
-				186BAE1E2F5BF3AADA543940 /* [CP] Check Pods Manifest.lock */,
 				E9A90B301CD32A6600FC49A3 /* Sources */,
 				E9A90B311CD32A6600FC49A3 /* Frameworks */,
 				E9A90B321CD32A6600FC49A3 /* Resources */,
-				ED47A87D877E1A6DA9B8DB5E /* [CP] Embed Pods Frameworks */,
-				FA3F92D9EB3C969D9A359E3E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,12 +174,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9A90B5F1CD32A6600FC49A3 /* Build configuration list for PBXNativeTarget "HowLoudTests" */;
 			buildPhases = (
-				6A6D372BB2690C238A53BC69 /* [CP] Check Pods Manifest.lock */,
 				E9A90B441CD32A6600FC49A3 /* Sources */,
 				E9A90B451CD32A6600FC49A3 /* Frameworks */,
 				E9A90B461CD32A6600FC49A3 /* Resources */,
-				8C98170FA64C27CDC7B738E2 /* [CP] Embed Pods Frameworks */,
-				9325078878B70DDD3F7076DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,11 +192,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9A90B621CD32A6600FC49A3 /* Build configuration list for PBXNativeTarget "HowLoudUITests" */;
 			buildPhases = (
-				D71DDD8F99C0E88293950C65 /* [CP] Check Pods Manifest.lock */,
 				E9A90B4F1CD32A6600FC49A3 /* Sources */,
 				E9A90B501CD32A6600FC49A3 /* Frameworks */,
 				E9A90B511CD32A6600FC49A3 /* Resources */,
-				F0E78949ECDF0BA446F930D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,7 +258,6 @@
 			files = (
 				E9A90B3F1CD32A6600FC49A3 /* Assets.xcassets in Resources */,
 				E96AEB781D00057A00BDE609 /* Localizable.strings in Resources */,
-				E9A90B3D1CD32A6600FC49A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,138 +277,20 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		186BAE1E2F5BF3AADA543940 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6A6D372BB2690C238A53BC69 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8C98170FA64C27CDC7B738E2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HowLoudTests/Pods-HowLoudTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9325078878B70DDD3F7076DC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HowLoudTests/Pods-HowLoudTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D71DDD8F99C0E88293950C65 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ED47A87D877E1A6DA9B8DB5E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HowLoud/Pods-HowLoud-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F0E78949ECDF0BA446F930D0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HowLoudUITests/Pods-HowLoudUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA3F92D9EB3C969D9A359E3E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HowLoud/Pods-HowLoud-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E9A90B301CD32A6600FC49A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E96AEB721CFFD19D00BDE609 /* MainPresenter.swift in Sources */,
-				E9A90B3A1CD32A6600FC49A3 /* MainViewController.swift in Sources */,
-				E9A90B661CD32B4000FC49A3 /* DecibelMeter.swift in Sources */,
-				E9A90B381CD32A6600FC49A3 /* AppDelegate.swift in Sources */,
+				E90000011CD32A6600FC49A3 /* HowLoudApp.swift in Sources */,
+				E90000021CD32A6600FC49A3 /* ContentView.swift in Sources */,
+				E90000031CD32A6600FC49A3 /* GaugeView.swift in Sources */,
+				E90000041CD32A6600FC49A3 /* DecibelMeterViewModel.swift in Sources */,
+				E90000051CD32A6600FC49A3 /* DecibelCalibration.swift in Sources */,
+				E90000061CD32A6600FC49A3 /* SoundLevelEngine.swift in Sources */,
+				E90000071CD32A6600FC49A3 /* CalibrationView.swift in Sources */,
+				E90000081CD32A6600FC49A3 /* AppleWatchHealthKitCalibrator.swift in Sources */,
+				E90000091CD32A6600FC49A3 /* HowLoudTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,22 +336,13 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		E9A90B3B1CD32A6600FC49A3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E9A90B3C1CD32A6600FC49A3 /* Base */,
-				E96AEB731D00044600BDE609 /* zh-Hant */,
-				E96AEB751D00048100BDE609 /* en */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E9A90B5A1CD32A6600FC49A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -519,7 +358,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -538,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -550,6 +389,7 @@
 		E9A90B5B1CD32A6600FC49A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -565,7 +405,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -578,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -588,12 +428,15 @@
 		};
 		E9A90B5D1CD32A6600FC49A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 898F91AE8BFE9B85A64A54CA /* Pods-HowLoud.debug.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = HowLoud/HowLoud.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W86V7AHLF3;
 				INFOPLIST_FILE = HowLoud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wdy.HowLoud;
@@ -604,12 +447,15 @@
 		};
 		E9A90B5E1CD32A6600FC49A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2C1A0E934E017CF30F1A388 /* Pods-HowLoud.release.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = HowLoud/HowLoud.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W86V7AHLF3;
 				INFOPLIST_FILE = HowLoud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wdy.HowLoud;
@@ -620,8 +466,8 @@
 		};
 		E9A90B601CD32A6600FC49A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D9C248E278469B501541C5E /* Pods-HowLoudTests.debug.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = HowLoudTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -633,8 +479,8 @@
 		};
 		E9A90B611CD32A6600FC49A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B717E209F127D4C01DD75E0 /* Pods-HowLoudTests.release.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = HowLoudTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -646,8 +492,8 @@
 		};
 		E9A90B631CD32A6600FC49A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEFA27B1BC631C6C98370A65 /* Pods-HowLoudUITests.debug.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				INFOPLIST_FILE = HowLoudUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.HowLoudUITests;
@@ -658,8 +504,8 @@
 		};
 		E9A90B641CD32A6600FC49A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9F5ACA86A936D23B0411623 /* Pods-HowLoudUITests.release.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 				INFOPLIST_FILE = HowLoudUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.HowLoudUITests;
