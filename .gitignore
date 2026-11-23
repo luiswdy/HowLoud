@@ -28,6 +28,10 @@ Podfile.lock
 # AppCode
 .idea/
 
+# Local AI Agent Tooling (see AGY_SETUP.md)
+.agents/
+xcode-skills/
+
 # Exclude Fabric's api-key, build-secret, and release-note
 api-key.txt
 build-secret.txt
