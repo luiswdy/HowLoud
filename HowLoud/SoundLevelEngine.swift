@@ -389,7 +389,9 @@ final class SoundLevelProcessor {
 
 /// Real-time audio engine using `AVAudioEngine`, native hardware sample rate,
 /// bottom omnidirectional built-in mic preference, and `SoundLevelProcessor`.
-final class SoundLevelEngine {
+/// All `AVAudioSession` and `AVAudioEngine` lifecycle work executes on a dedicated
+/// serial background queue to avoid blocking the main thread.
+final class SoundLevelEngine: @unchecked Sendable {
     enum EngineError: Error, LocalizedError {
         case invalidAudioFormat
 
@@ -401,6 +403,7 @@ final class SoundLevelEngine {
         }
     }
 
+    private let audioQueue = DispatchQueue(label: "com.howloud.audio-engine", qos: .userInitiated)
     private let audioEngine = AVAudioEngine()
     private let processorLock = NSLock()
     private let processor: SoundLevelProcessor
@@ -420,7 +423,16 @@ final class SoundLevelEngine {
     }
 
     deinit {
-        stop()
+        unregisterNotifications()
+        let engine = audioEngine
+        let wasRunning = isRunning
+        audioQueue.async {
+            if wasRunning {
+                engine.inputNode.removeTap(onBus: 0)
+                engine.stop()
+                try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            }
+        }
     }
 
     func updateWeighting(_ weighting: FrequencyWeighting) {
@@ -441,32 +453,59 @@ final class SoundLevelEngine {
         processorLock.unlock()
     }
 
-    func start(onMeasurement: @escaping @Sendable (SoundLevelMeasurement) -> Void) throws {
-        guard !isRunning else { return }
+    func start(onMeasurement: @escaping @Sendable (SoundLevelMeasurement) -> Void) async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            audioQueue.async { [weak self] in
+                guard let self else {
+                    continuation.resume()
+                    return
+                }
 
-        measurementHandler = onMeasurement
-        try configureAudioSession()
-        try startAudioEngineTap()
-        registerNotifications()
-        isRunning = true
+                self.processorLock.lock()
+                self.measurementHandler = onMeasurement
+                self.processorLock.unlock()
+
+                guard !self.isRunning else {
+                    continuation.resume()
+                    return
+                }
+
+                do {
+                    try self.configureAudioSession()
+                    try self.startAudioEngineTap()
+                    self.registerNotifications()
+                    self.isRunning = true
+                    continuation.resume()
+                } catch {
+                    self.processorLock.lock()
+                    self.measurementHandler = nil
+                    self.processorLock.unlock()
+                    try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
     }
 
     func stop() {
+        processorLock.lock()
+        measurementHandler = nil
+        processorLock.unlock()
+
+        audioQueue.async { [weak self] in
+            self?.stopOnAudioQueue()
+        }
+    }
+
+    private func stopOnAudioQueue() {
         unregisterNotifications()
 
-        let wasRunning = isRunning
-        if wasRunning {
-            audioEngine.inputNode.removeTap(onBus: 0)
-            audioEngine.stop()
-            isRunning = false
-        }
+        guard isRunning else { return }
+        audioEngine.inputNode.removeTap(onBus: 0)
+        audioEngine.stop()
+        isRunning = false
 
-        measurementHandler = nil
-        if wasRunning {
-            DispatchQueue.global(qos: .userInitiated).async {
-                try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
-            }
-        }
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
 
     // MARK: - Audio Session & Mic Selection
@@ -553,30 +592,32 @@ final class SoundLevelEngine {
     // MARK: - Route Change & Interruption Handling
 
     private func registerNotifications() {
+        unregisterNotifications()
         let center = NotificationCenter.default
 
         routeChangeObserver = center.addObserver(
             forName: AVAudioSession.routeChangeNotification,
             object: nil,
-            queue: .main
+            queue: nil
         ) { [weak self] _ in
-            self?.restartTapAfterRouteChange()
+            self?.audioQueue.async { [weak self] in
+                self?.restartTapAfterRouteChange()
+            }
         }
 
         interruptionObserver = center.addObserver(
             forName: AVAudioSession.interruptionNotification,
             object: nil,
-            queue: .main
+            queue: nil
         ) { [weak self] notification in
-            guard let self,
-                  let info = notification.userInfo,
-                  let rawType = info[AVAudioSessionInterruptionTypeKey] as? UInt,
-                  let type = AVAudioSession.InterruptionType(rawValue: rawType) else {
+            guard let rawType = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt,
+                  let type = AVAudioSession.InterruptionType(rawValue: rawType),
+                  type == .ended else {
                 return
             }
 
-            if type == .ended {
-                self.restartTapAfterRouteChange()
+            self?.audioQueue.async { [weak self] in
+                self?.restartTapAfterRouteChange()
             }
         }
     }

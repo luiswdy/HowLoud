@@ -55,6 +55,8 @@ final class DecibelMeterViewModel: ObservableObject {
     private let calibrationStore: CalibrationStore
     private let engine: SoundLevelEngine
     private var calibrationCaptureBuffer: [DecibelMeasurementSample]?
+    private var startTask: Task<Void, Never>?
+    private var measurementSessionID: UInt64 = 0
     
     var unitLabel: String {
         frequencyWeighting.rawValue
@@ -130,7 +132,8 @@ final class DecibelMeterViewModel: ObservableObject {
         
         let wasMeasuring = isMeasuring
         if !wasMeasuring {
-            startMeasuring()
+            let started = await startMeasuringAsync()
+            guard started else { return [] }
         }
         guard isMeasuring else { return [] }
         
@@ -227,7 +230,7 @@ final class DecibelMeterViewModel: ObservableObject {
             return
         }
         
-        if isMeasuring {
+        if isMeasuring || startTask != nil {
             stopMeasuring()
         } else {
             startMeasuring()
@@ -235,26 +238,62 @@ final class DecibelMeterViewModel: ObservableObject {
     }
     
     func startMeasuring() {
-        guard !isMeasuring else { return }
+        guard !isMeasuring, startTask == nil else { return }
+        Task { [weak self] in
+            await self?.startMeasuringAsync()
+        }
+    }
+    
+    @discardableResult
+    func startMeasuringAsync() async -> Bool {
+        if isMeasuring { return true }
+        if let existingTask = startTask {
+            await existingTask.value
+            return isMeasuring
+        }
+        
+        measurementSessionID &+= 1
+        let sessionID = measurementSessionID
         
         engine.updateWeighting(frequencyWeighting)
         engine.updateTimeWeighting(timeWeighting)
         
-        do {
-            try engine.start { [weak self] measurement in
-                Task { @MainActor in
-                    self?.handleMeasurement(measurement)
+        let task = Task { @MainActor [weak self] in
+            guard let self else { return }
+            do {
+                try await self.engine.start { [weak self] measurement in
+                    Task { @MainActor in
+                        guard let self, self.measurementSessionID == sessionID, self.isMeasuring else { return }
+                        self.handleMeasurement(measurement)
+                    }
+                }
+                
+                guard self.measurementSessionID == sessionID else {
+                    self.engine.stop()
+                    return
+                }
+                self.isMeasuring = true
+            } catch {
+                print("Failed to start SoundLevelEngine: \(error)")
+                if self.measurementSessionID == sessionID {
+                    self.isMeasuring = false
                 }
             }
-            isMeasuring = true
-        } catch {
-            print("Failed to start SoundLevelEngine: \(error)")
-            isMeasuring = false
         }
+        
+        startTask = task
+        await task.value
+        if measurementSessionID == sessionID {
+            startTask = nil
+        }
+        return isMeasuring
     }
     
     func stopMeasuring() {
-        guard isMeasuring else { return }
+        guard isMeasuring || startTask != nil else { return }
+        measurementSessionID &+= 1
+        startTask?.cancel()
+        startTask = nil
         engine.stop()
         isMeasuring = false
         isClipping = false

@@ -19,11 +19,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSHealthShareUsageDescription</key>
 	<string>HowLoud reads Apple Watch environmental sound level measurements from Apple Health to automatically calibrate your iPhone microphone.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>HowLoud integrates with Apple Health to calibrate your iPhone microphone using Apple Watch environmental sound levels and does not write data to Apple Health.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>HowLoud needs access to the microphone to measure ambient noise levels.</string>
 	<key>UILaunchScreen</key>
